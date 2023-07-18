@@ -14,22 +14,33 @@ function addBookmark() {
     siteURL: bookmarkURLInput.value,
   };
 
-  if (isValidName(bookmark.siteName) && isValidURL(bookmark.siteURL)) {
-    bookmarkList.push(bookmark);
-    localStorage.setItem("Bookmarks", JSON.stringify(bookmarkList));
-    displayBookmarks(bookmarkList);
-    clearForm();
-    console.log(bookmarkList);
+  if (isBookmarkNameUnique(bookmark.siteName)) {
+    if (isValidName(bookmark.siteName) && isValidURL(bookmark.siteURL)) {
+      bookmarkList.push(bookmark);
+      localStorage.setItem("Bookmarks", JSON.stringify(bookmarkList));
+      displayBookmarks(bookmarkList);
+      clearForm();
+      console.log(bookmarkList);
+    } else {
+      swal({
+        title: "Name or URL is not valid!",
+        text: `Please follow the rules below:
+                > Site name must contain at least 3 characters
+                > The URL must start with either http or https followed by :// 
+                  it must contain www. followed by subdomain of length(2, 256)
+                  last part contains top level domain like .com, .org etc.`,
+      });
+    }
   } else {
     swal({
-      title: "Name or URL is not valid!",
-      text: `Please follow the rules below:
-              > Site name must contain at least 3 characters
-              > The URL must start with either http or https followed by :// 
-                it must contain www. followed by subdomain of length(2, 256)
-                last part contains top level domain like .com, .org etc.`,
+      title: "Bookmark name already exists!",
+      text: "Please enter a unique bookmark name.",
     });
   }
+}
+
+function isBookmarkNameUnique(name) {
+  return !bookmarkList.some((bookmark) => bookmark.siteName === name);
 }
 
 function isValidName(name) {
