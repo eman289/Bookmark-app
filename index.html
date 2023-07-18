@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple application to bookmark your favorite websites"
+    />
+    <title>Bookmark</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Capriola&family=Fredericka+the+Great&family=Ysabeau+Office:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="py-3">
+      <section id="bookmark" class="bookmark content-adjust p-3 p-sm-5">
+        <div
+          class="title d-flex flex-column gap-5 justify-content-center align-items-center text-center"
+        >
+          <h1 class="waviy" title="bookmark">
+            <span style="--i: 1">B</span>
+            <span style="--i: 2">O</span>
+            <span style="--i: 3">O</span>
+            <span style="--i: 4">K</span>
+            <span style="--i: 5">M</span>
+            <span style="--i: 6">A</span>
+            <span style="--i: 7">R</span>
+            <span style="--i: 8">K</span>
+          </h1>
+          <h2>
+            Bookmark your favorite sites <i class="fa-brands fa-gratipay"></i>
+          </h2>
+        </div>
+        <div
+          class="bookmarkInputs mt-3 d-flex flex-column align-items-center justify-content-center gap-md-3"
+        >
+          <div class="input w-100">
+            <label for="bookmarkName"
+              ><i class="fa-solid fa-heart"></i> Name</label
+            >
+            <input
+              type="text"
+              id="bookmarkName"
+              class="form-control mt-2"
+              placeholder="Bookmark Name"
+              oninput="validNameInput();"
+            />
+          </div>
+          <div class="input pt-3 w-100">
+            <label for="bookmarkURL"
+              ><i class="fa-solid fa-link"></i> URL</label
+            >
+            <input
+              type="text"
+              id="bookmarkURL"
+              class="form-control mt-2"
+              placeholder="Website URL"
+              oninput="validURLInput()"
+            />
+          </div>
+          <button onclick="addBookmark();" class="btn btn-main mt-4 px-4">
+            Add bookmark
+          </button>
+        </div>
+      </section>
+      <section id="displayTable" class="content-adjust pt-2 px-3 px-sm-5">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Website Name</th>
+              <th>Visit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="bookmarkContent"></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="./js/sweetalert.min.js"></script>
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
