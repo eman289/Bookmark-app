@@ -31,7 +31,7 @@ h6 {
   --bs-btn-border-color: #855ec8;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #9e7dd8;
-  --bs-btn-hover-border-color: #855ec8;
+  --bs-btn-hover-border-color: #9e7dd8;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #855ec8;
@@ -56,20 +56,18 @@ h6 {
 }
 
 /*====== Start Main ======*/
-
 main {
   min-height: 100vh;
-  background-image: url(../images/rm456-010.jpg);
+  background-image: url(../images/background.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position-y: center;
 }
 
 /* Start main title styling */
-
 .waviy {
   position: relative;
   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
-  font-size: 2.1875rem;
+  font-size: 1.9375rem;
 }
 
 .waviy span {
@@ -99,11 +97,10 @@ h1 span:first-child {
 .waviy:hover span {
   animation: none;
 }
-
 /* End main title styling */
 
 h2 i {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 main .form-control:focus {
